@@ -25,7 +25,7 @@ server <- function(input, output) {
   
   output$mini_table = DT::renderDataTable({datatable((
     unique(race_stats_final %>% filter(., year == input$year_races) %>% select('race'))),
-    options = list(searching = FALSE))
+    rownames = FALSE, options = list(searching = FALSE))
     
   })
   ##### RACE STANDINGS TABLE
@@ -228,7 +228,7 @@ server <- function(input, output) {
       coord_flip()+
       labs(y= "Wins", x = "Driver")+ 
       theme_classic()+
-      theme(legend.title = element_blank(), axis.title.y = element_blank())
+      theme(legend.position = "none", axis.title.y = element_blank())
     ggplotly(circuit_repeatwins_drivers, tooltip = NULL)
   })
   
@@ -253,7 +253,7 @@ server <- function(input, output) {
       coord_flip()+
       labs(y= "Wins", x = "Constructor")+
       theme_classic()+
-      theme(legend.title = element_blank(), axis.title.y = element_blank())
+      theme(legend.position = "none", axis.title.y = element_blank())
     ggplotly(circuit_repeatwins_constructorsr, tooltip = NULL)
   })
   

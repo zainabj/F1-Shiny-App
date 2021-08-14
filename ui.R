@@ -4,8 +4,9 @@ ui <- shinyUI(
                 dashboardHeader(title = "FIA Formula 1"),
                 
                 dashboardSidebar(width = 200,
-                                 sidebarUserPanel("Team 10", 
-                                                  image = "https://images-na.ssl-images-amazon.com/images/I/61Ysu6NeEFL._SY355_.jpg"),
+                                 sidebarUserPanel( "Team Lights Out",
+                                                  img(src="team.png",width="50%", height = "50%")),
+                                 br(),
                                  sidebarMenu(
                                    menuItem("About", tabName = "about", icon = icon("book")),
                                    menuItem("Drivers", tabName = "drivers", icon = icon("id-card")),
@@ -270,7 +271,7 @@ ui <- shinyUI(
                             h2('Formula 1 Races Schedule Throughout the History'),
                             fluidRow(column(width = 1),
                                      column(width = 2, title = "Select a Formula 1 Season", solidHeader = TRUE, status = "primary",
-                                            selectInput(inputId = "year_races", label = '', choices = sort(unique(for_map2$year)),
+                                            selectInput(inputId = "year_races", label = '', choices = sort(unique(for_map2$year), decreasing = TRUE),
                                                         selected = NULL, multiple = FALSE),
                                             DT::dataTableOutput("mini_table")),
                                      column(width = 9, plotlyOutput("race_map", height = 700), solidHeader = TRUE, status = "primary")
