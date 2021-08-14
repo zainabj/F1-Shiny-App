@@ -196,7 +196,7 @@ server <- function(input, output) {
       xlab('Failure Percentage') +
       ylab('Constructor') +
       theme_classic() 
-    ggplotly(gg, height = 600, width=1000, tooltip = NULL)
+    ggplotly(gg, height = 550, width=900, tooltip = NULL)
   })
   
   # Popular Circuits chart
@@ -206,7 +206,7 @@ server <- function(input, output) {
           xlab('Season') +
           theme_classic() +
           theme(legend.position = "none", axis.title.y = element_blank())
-    ggplotly(gg, height = 600, width=900, tooltip = NULL)
+    ggplotly(gg, height = 550, width=900, tooltip = NULL)
   })
   
   # repeat wins driver bar chart - Circuit
